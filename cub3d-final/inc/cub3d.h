@@ -5,13 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: humartin <humartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/01 10:38:41 by ebourdit          #+#    #+#             */
-/*   Updated: 2022/12/07 13:15:21 by humartin         ###   ########.fr       */
+/*   Created: 2022/12/07 15:13:04 by humartin          #+#    #+#             */
+/*   Updated: 2022/12/07 16:39:29 by humartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _CUB3D_H
-# define _CUB3D_H
+#ifndef CUB3D_H
+# define CUB3D_H
 
 # include <stdlib.h>
 # include <unistd.h>
@@ -23,21 +23,22 @@
 # include <math.h>
 # include <mlx.h>
 
-# define ROTATE_LEFT	65361
-# define ROTATE_RIGHT	65363
-# define FORWARD_W_Z	119
-# define BACK_S_S		115
-# define RIGHT_D_D		100
-# define LEFT_A_Q		97
+# define ROTATE_LEFT	123
+# define ROTATE_RIGHT	124
+# define FORWARD_W_Z	13
+# define BACK_S_S		1
+# define RIGHT_D_D		2
+# define LEFT_A_Q		0
+# define ESCAPE			53
 # define BUFFER_SIZE	4096
 
-typedef struct		s_sprxy
+typedef struct	s_sprxy
 {
 	double			x;
 	double			y;
 }					t_sprxy;
 
-typedef struct		s_sprite
+typedef struct	s_sprite
 {
 	int				nbspr;
 	int				*order;
@@ -57,7 +58,7 @@ typedef struct		s_sprite
 	double			*zbuffer;
 }					t_sprite;
 
-typedef struct		s_texture
+typedef struct	s_texture
 {
 	int				texdir;
 	double			wallx;
@@ -67,7 +68,7 @@ typedef struct		s_texture
 	double			texpos;
 }					t_texture;
 
-typedef struct		s_ray
+typedef struct	s_ray
 {
 	double			posx;
 	double			posy;
@@ -99,7 +100,7 @@ typedef struct		s_ray
 	int				texture;
 }					t_ray;
 
-typedef struct		s_data
+typedef struct	s_data
 {
 	void			*mlx_ptr;
 	void			*mlx_win;
@@ -114,6 +115,7 @@ typedef struct		s_data
 	int				right;
 	int				rotate_left;
 	int				rotate_right;
+	int				escape;
 	int				minimapechelle;
 	int				width;
 	int				height;
@@ -121,7 +123,7 @@ typedef struct		s_data
 	int				*addr2;
 }					t_data;
 
-typedef struct		s_recup
+typedef struct	s_recup
 {
 	int				rx;
 	int				ry;

@@ -5,13 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: humartin <humartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/01 10:38:41 by ebourdit          #+#    #+#             */
-/*   Updated: 2022/12/07 12:57:13 by humartin         ###   ########.fr       */
+/*   Created: 2022/12/07 15:10:42 by humartin          #+#    #+#             */
+/*   Updated: 2022/12/07 15:10:43 by humartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
-# include <mlx.h>
+#include <mlx.h>
 
 void	ft_stepsidedist(t_recup *recup)
 {

@@ -1,7 +1,7 @@
 NAME = cub3D
 SRC = src
 CC := gcc
-CFLAGS := -Wall -Wextra -Werror -Imlx -c
+CFLAGS := -Wall -Wextra -Werror -Imlx -c -g
 
 NONE := '\033[0m'
 GREEN := '\033[92m'

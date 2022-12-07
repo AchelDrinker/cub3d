@@ -5,13 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: humartin <humartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/01 10:38:41 by ebourdit          #+#    #+#             */
-/*   Updated: 2022/12/07 12:57:13 by humartin         ###   ########.fr       */
+/*   Created: 2022/12/07 15:09:58 by humartin          #+#    #+#             */
+/*   Updated: 2022/12/07 16:40:22 by humartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
-# include <mlx.h>
+#include <mlx.h>
 
 int		ft_key_press(int keycode, t_recup *recup)
 {
@@ -27,12 +27,12 @@ int		ft_key_press(int keycode, t_recup *recup)
 		recup->data.rotate_left = 1;
 	else if (keycode == ROTATE_RIGHT)
 		recup->data.rotate_right = 1;
-	else if (keycode == 65307)
-		ft_error(recup, "Non jrigole\n");
+	else if (keycode == ESCAPE)
+		ft_exit(recup);
 	return (1);
 }
 
-int		ft_key_release(int keycode, t_recup *recup)
+int	ft_key_release(int keycode, t_recup *recup)
 {
 	if (keycode == FORWARD_W_Z)
 		recup->data.forward = 0;
@@ -49,10 +49,10 @@ int		ft_key_release(int keycode, t_recup *recup)
 	return (1);
 }
 
-int		ft_color_column(t_recup *recup)
+int	ft_color_column(t_recup *recup)
 {
-	int j;
-	int i;
+	int	j;
+	int	i;
 
 	j = -1;
 	recup->ray.drawend = recup->ry - recup->ray.drawstart;

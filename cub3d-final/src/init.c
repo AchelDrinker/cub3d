@@ -5,13 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: humartin <humartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/07 18:19:22 by ebourdit          #+#    #+#             */
-/*   Updated: 2022/12/07 12:57:13 by humartin         ###   ########.fr       */
+/*   Created: 2022/12/07 15:09:52 by humartin          #+#    #+#             */
+/*   Updated: 2022/12/07 15:09:53 by humartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
-# include <mlx.h>
+#include <mlx.h>
 
 void	ft_init_more(t_recup *recup)
 {

@@ -5,13 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: humartin <humartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/01 10:38:41 by ebourdit          #+#    #+#             */
-/*   Updated: 2022/12/07 12:57:13 by humartin         ###   ########.fr       */
+/*   Created: 2022/12/07 15:10:46 by humartin          #+#    #+#             */
+/*   Updated: 2022/12/07 16:41:20 by humartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
-# include <mlx.h>
+#include <mlx.h>
 
 void	ft_get_texture_adress(t_recup *recup)
 {
@@ -85,21 +85,20 @@ int		ft_mlx(t_recup *recup)
 	ft_initialisation2(recup);
 	if (!(recup->data.mlx_ptr = mlx_init()))
 		ft_error(recup, "Mlx init impossible\n");
-	mlx_get_screen_size(recup->data.mlx_ptr, &recup->screenx, &recup->screeny);
-	recup->rx = (recup->rx > recup->screenx) ? recup->screenx : recup->rx;
-	recup->ry = (recup->ry > recup->screeny) ? recup->screeny : recup->ry;
-	ft_get_texture(recup);
+	recup->rx = 1920;
+	recup->ry = 1080;
+		ft_get_texture(recup);
 	recup->data.img = mlx_new_image(recup->data.mlx_ptr, recup->rx, recup->ry);
 	recup->data.addr = (int *)mlx_get_data_addr(recup->data.img, &recup->data.
 			bits_per_pixel, &recup->data.line_length, &recup->data.endian);
 	if (recup->save == 1)
 		ft_raycasting(recup);
 	recup->data.mlx_win = mlx_new_window(recup->data.mlx_ptr, recup->rx,
-			recup->ry, "Hello world!");
+			recup->ry, "FLEXGANG");
 	recup->data.img2 = mlx_new_image(recup->data.mlx_ptr, recup->rx, recup->ry);
 	recup->data.addr2 = (int *)mlx_get_data_addr(recup->data.img2, &recup->
 			data.bits_per_pixel, &recup->data.line_length, &recup->data.endian);
-	mlx_hook(recup->data.mlx_win, 33, 1L << 17, ft_exit, recup);
+	mlx_hook(recup->data.mlx_win, 17, 0, ft_exit, recup);
 	mlx_hook(recup->data.mlx_win, 2, 1L << 0, ft_key_press, recup);
 	mlx_loop_hook(recup->data.mlx_ptr, ft_raycasting, recup);
 	mlx_hook(recup->data.mlx_win, 3, 1L << 1, ft_key_release, recup);

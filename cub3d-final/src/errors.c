@@ -5,13 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: humartin <humartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/01 10:38:41 by ebourdit          #+#    #+#             */
-/*   Updated: 2022/12/07 12:57:13 by humartin         ###   ########.fr       */
+/*   Created: 2022/12/07 15:09:30 by humartin          #+#    #+#             */
+/*   Updated: 2022/12/07 16:40:24 by humartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
-# include <mlx.h>
+#include <mlx.h>
 
 void	ft_verify_errors(t_recup *recup)
 {
@@ -73,7 +73,7 @@ void	ft_error(t_recup *recup, char *str)
 int		ft_exit(t_recup *recup)
 {
 	if (recup->indicateur3 == 0)
-		ft_error(recup, "Non jrigole\n");
+		ft_error(recup, "\n");
 	if (recup->data.img)
 		mlx_destroy_image(recup->data.mlx_ptr, recup->data.img);
 	if (recup->texture[0].img)
@@ -88,5 +88,5 @@ int		ft_exit(t_recup *recup)
 		mlx_destroy_image(recup->data.mlx_ptr, recup->texture[4].img);
 	if (recup->data.mlx_win)
 		mlx_destroy_window(recup->data.mlx_ptr, recup->data.mlx_win);
-	exit(0);
+	exit(EXIT_SUCCESS);
 }

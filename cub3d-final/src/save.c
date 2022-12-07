@@ -5,13 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: humartin <humartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/01 10:38:41 by ebourdit          #+#    #+#             */
-/*   Updated: 2022/12/07 12:57:13 by humartin         ###   ########.fr       */
+/*   Created: 2022/12/07 15:10:52 by humartin          #+#    #+#             */
+/*   Updated: 2022/12/07 16:36:04 by humartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
-# include <mlx.h>
+#include <mlx.h>
 
 void	ft_header(t_recup *recup, int fd)
 {
@@ -63,17 +63,17 @@ void	ft_save(t_recup *recup)
 		y--;
 	}
 	system("chmod 777 image.bmp");
-	ft_error(recup, "Non jrigole --save ok\n");
+	ft_error(recup, "--save ok\n");
 }
 
-int		ft_check_save(char *str)
+int	ft_check_save(char *str)
 {
 	int	i;
 
 	i = 0;
 	while (str[i])
 		i++;
-	if (str[i - 1] == 'e' && str[i - 2] == 'v' && str[i - 3] == 'a' &&
+	if (str[i - 1] == 'e' && str[i - 2] == 'v' && str[i - 3] == 'a' && \
 		str[i - 4] == 's' && str[i - 5] == '-' && str[i - 6] == '-'
 		&& ft_strlen(str) < 7)
 		return (1);
@@ -81,7 +81,7 @@ int		ft_check_save(char *str)
 		return (0);
 }
 
-int		ft_nb_virgule(const char *str)
+int	ft_nb_virgule(const char *str)
 {
 	int	i;
 	int	j;
