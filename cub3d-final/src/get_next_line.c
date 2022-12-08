@@ -6,14 +6,14 @@
 /*   By: humartin <humartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 15:09:43 by humartin          #+#    #+#             */
-/*   Updated: 2022/12/07 15:10:37 by humartin         ###   ########.fr       */
+/*   Updated: 2022/12/08 12:11:07 by humartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
 #include <mlx.h>
 
-int		ft_check(char *str)
+int	ft_check(char *str)
 {
 	int		i;
 
@@ -27,13 +27,14 @@ int		ft_check(char *str)
 	return (-1);
 }
 
-int		ft_copy(char **line, char **buff)
+int	ft_copy(char **line, char **buff)
 {
 	int		start;
 	char	*temp;
 	char	*line_temp;
 
-	if ((start = ft_check(*buff)) >= 0)
+	start = ft_check(*buff);
+	if (start >= 0)
 	{
 		temp = ft_substr(*buff, 0, start);
 		line_temp = *line;
@@ -56,7 +57,7 @@ int		ft_copy(char **line, char **buff)
 	return (-1);
 }
 
-int		ft_eof(int ret, char **buff, char **line)
+int	ft_eof(int ret, char **buff, char **line)
 {
 	if (ret == -1)
 		return (-1);
@@ -70,7 +71,7 @@ int		ft_eof(int ret, char **buff, char **line)
 	return (0);
 }
 
-int		ft_free_buff(char **buff, t_recup *recup)
+int	ft_free_buff(char **buff, t_recup *recup)
 {
 	if (recup->erreur == 2 && *buff)
 	{
@@ -80,7 +81,7 @@ int		ft_free_buff(char **buff, t_recup *recup)
 	return (0);
 }
 
-int		get_next_line(int fd, char **line, t_recup *recup)
+int	get_next_line(int fd, char **line, t_recup *recup)
 {
 	static char	*buff = NULL;
 	int			ret;
@@ -96,10 +97,16 @@ int		get_next_line(int fd, char **line, t_recup *recup)
 	if (ret == 0)
 		return (1);
 	if (!buff)
-		if (!(buff = malloc(sizeof(char) * BUFFER_SIZE + 1)))
-			return (-1);
-	while ((ret = read(fd, buff, BUFFER_SIZE)) > 0)
 	{
+		buff = malloc(sizeof(char) * BUFFER_SIZE + 1);
+		if (!buff)
+			return (-1);
+	}
+	while (1)
+	{
+		ret = read(fd, buff, BUFFER_SIZE);
+		if (ret <= 0)
+			break ;
 		buff[ret] = '\0';
 		if (!ft_copy(line, &buff))
 			return (1);

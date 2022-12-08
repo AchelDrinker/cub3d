@@ -6,17 +6,17 @@
 /*   By: humartin <humartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 15:10:20 by humartin          #+#    #+#             */
-/*   Updated: 2022/12/07 15:10:21 by humartin         ###   ########.fr       */
+/*   Updated: 2022/12/08 12:18:57 by humartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
 #include <mlx.h>
 
-int		ft_strlen2(char *str)
+int	ft_strlen2(char *str)
 {
-	int j;
-	int i;
+	int	j;
+	int	i;
 
 	j = 0;
 	i = 0;
@@ -30,9 +30,9 @@ int		ft_strlen2(char *str)
 	return (j);
 }
 
-int		ft_charinstr(char *str, char c)
+int	ft_charinstr(char *str, char c)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!str)
@@ -46,7 +46,7 @@ int		ft_charinstr(char *str, char c)
 	return (0);
 }
 
-int		ft_depart(char c, t_recup *recup, int i, int j)
+int	ft_depart(char c, t_recup *recup, int i, int j)
 {
 	if (c == 'N' || c == 'S' || c == 'E' || c == 'W')
 	{
@@ -60,9 +60,9 @@ int		ft_depart(char c, t_recup *recup, int i, int j)
 	return (0);
 }
 
-int		ft_murs_util(char *str)
+int	ft_murs_util(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i] != '\0')

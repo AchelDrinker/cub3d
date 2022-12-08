@@ -6,16 +6,16 @@
 /*   By: humartin <humartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 15:10:13 by humartin          #+#    #+#             */
-/*   Updated: 2022/12/07 15:10:14 by humartin         ###   ########.fr       */
+/*   Updated: 2022/12/08 12:18:31 by humartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
 #include <mlx.h>
 
-int		ft_murs(t_recup *recup)
+int	ft_murs(t_recup *recup)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < recup->nblines)
@@ -38,14 +38,15 @@ int		ft_murs(t_recup *recup)
 	return (0);
 }
 
-int		ft_copy_map(char *str, t_recup *recup)
+int	ft_copy_map(char *str, t_recup *recup)
 {
 	static int	i = 0;
 	int			j;
 
 	j = 0;
 	recup->map[i] = NULL;
-	if (!(recup->map[i] = malloc(sizeof(char) * recup->sizeline + 1)))
+	recup->map[i] = malloc(sizeof(char) * recup->sizeline + 1);
+	if (!recup->map[i])
 		return (0);
 	while (str[j] != '\0')
 	{
@@ -67,9 +68,9 @@ int		ft_copy_map(char *str, t_recup *recup)
 	return (0);
 }
 
-int		ft_is_map(char *str, t_recup *recup)
+int	ft_is_map(char *str, t_recup *recup)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!str)
@@ -80,7 +81,7 @@ int		ft_is_map(char *str, t_recup *recup)
 		{
 			if (str[i] != ' ' && str[i] != '0' && str[i] != '1' \
 					&& str[i] != '2' && str[i] != 'N' && str[i] != 'S' \
-					&& str[i] != 'E' && str[i] != 'W' && str[i] != '\n'
+					&& str[i] != 'E' && str[i] != 'W' && str[i] != '\n' \
 					&& str[i] != '\t')
 			{
 				if (recup->insidemap == 1)
@@ -103,11 +104,12 @@ void	ft_map(char *str, t_recup *recup)
 	i = 0;
 	if (ft_is_map(str, recup) == 1)
 	{
-		if (recup->f == -1 || recup->c == -1 || recup->no == NULL ||
-				recup->so == NULL || recup->we == NULL ||
+		if (recup->f == -1 || recup->c == -1 || recup->no == NULL || \
+				recup->so == NULL || recup->we == NULL || \
 				recup->ea == NULL || recup->sp == NULL)
 			recup->erreur = 2;
-		if ((i = ft_strlen(str)) > ssizeline)
+		i = ft_strlen(str);
+		if (i > ssizeline)
 			ssizeline = i;
 		snblines = snblines + 1;
 	}

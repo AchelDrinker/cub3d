@@ -6,14 +6,14 @@
 /*   By: humartin <humartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 15:09:37 by humartin          #+#    #+#             */
-/*   Updated: 2022/12/07 15:10:37 by humartin         ###   ########.fr       */
+/*   Updated: 2022/12/08 11:21:57 by humartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
 #include <mlx.h>
 
-int			ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
 	int			i;
 
@@ -25,7 +25,7 @@ int			ft_strlen(char *str)
 	return (i);
 }
 
-char		*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*str;
 	size_t	i;
@@ -45,13 +45,14 @@ char		*ft_substr(char const *s, unsigned int start, size_t len)
 	return (str);
 }
 
-char		*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*str;
 	int		i;
 	int		j;
 
-	if (!(str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1))))
+	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!str)
 		return (NULL);
 	i = 0;
 	while (s1 && s1[i])
@@ -70,7 +71,7 @@ char		*ft_strjoin(char *s1, char *s2)
 	return (str);
 }
 
-char		*ft_subbuff(char *buff, int start, int len)
+char	*ft_subbuff(char *buff, int start, int len)
 {
 	int		i;
 	char	*str;

@@ -6,7 +6,7 @@
 /*   By: humartin <humartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 15:10:42 by humartin          #+#    #+#             */
-/*   Updated: 2022/12/07 15:10:43 by humartin         ###   ########.fr       */
+/*   Updated: 2022/12/08 15:32:55 by humartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,11 @@ void	ft_drawstartend(t_recup *recup)
 {
 	if (recup->ray.side == 0)
 		recup->ray.perpwalldist = ((double)recup->ray.mapx - \
-				recup->ray.posx + (1 - (double)recup->ray.
+				recup->ray.posx + (1 - (double)recup->ray. \
 				stepx) / 2) / recup->ray.raydirx;
 	else
 		recup->ray.perpwalldist = ((double)recup->ray.mapy - \
-				recup->ray.posy + (1 - (double)recup->ray.
+				recup->ray.posy + (1 - (double)recup->ray. \
 				stepy) / 2) / recup->ray.raydiry;
 	recup->ray.lineheight = (int)(recup->ry / recup->ray.perpwalldist);
 	recup->ray.drawstart = -recup->ray.lineheight / 2 + recup->ry / 2;
@@ -85,7 +85,7 @@ void	ft_drawstartend(t_recup *recup)
 
 void	ft_swap(t_recup *recup)
 {
-	void *tmp;
+	void	*tmp;
 
 	tmp = recup->data.img;
 	recup->data.img = recup->data.img2;

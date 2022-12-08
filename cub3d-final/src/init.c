@@ -6,7 +6,7 @@
 /*   By: humartin <humartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 15:09:52 by humartin          #+#    #+#             */
-/*   Updated: 2022/12/07 15:09:53 by humartin         ###   ########.fr       */
+/*   Updated: 2022/12/08 12:14:34 by humartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,22 +60,22 @@ void	ft_init_more3(t_recup *recup)
 		recup->ray.deltadistx = 1;
 	else
 		recup->ray.deltadistx = sqrt(1 + (recup->ray.raydiry
-			* recup->ray.raydiry) / (recup->ray.raydirx *
+					* recup->ray.raydiry) / (recup->ray.raydirx * \
 			recup->ray.raydirx));
 	if (recup->ray.raydirx == 0)
 		recup->ray.deltadisty = 0;
 	else if (recup->ray.raydiry == 0)
 		recup->ray.deltadisty = 1;
 	else
-		recup->ray.deltadisty = sqrt(1 + (recup->ray.raydirx *
-			recup->ray.raydirx) / (recup->ray.raydiry *
+		recup->ray.deltadisty = sqrt(1 + (recup->ray.raydirx * \
+					recup->ray.raydirx) / (recup->ray.raydiry * \
 			recup->ray.raydiry));
 }
 
 void	ft_atoi3_check(const char *str, t_recup *recup)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
@@ -100,16 +100,16 @@ void	ft_atoi3_check(const char *str, t_recup *recup)
 		recup->erreur = 2;
 }
 
-int		ft_lignevide(char *str)
+int	ft_lignevide(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
 	{
-		if (str[i] != '\t' && str[i] != ' ' && str[i] != '\0' &&
-				str[i] != '\n' && str[i] != '\r' && str[i] != '\v'
-				&& str[i] != '\f')
+		if (str[i] != '\t' && str[i] != ' ' && str[i] != '\0' && \
+			str[i] != '\n' && str[i] != '\r' && str[i] != '\v'
+			&& str[i] != '\f')
 			return (1);
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: humartin <humartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 15:10:31 by humartin          #+#    #+#             */
-/*   Updated: 2022/12/07 15:10:32 by humartin         ###   ########.fr       */
+/*   Updated: 2022/12/08 12:31:19 by humartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 void	ft_initialisation2(t_recup *recup)
 {
-	if (!(recup->s.zbuffer = (double *)malloc(sizeof(double) * recup->rx)))
+	recup->s.zbuffer = (double *)malloc(sizeof(double) * recup->rx);
+	if (!recup->s.zbuffer)
 		exit(0);
 	recup->data.forward = 0;
 	recup->data.back = 0;
@@ -69,8 +70,8 @@ void	ft_init_texture(t_recup *recup)
 
 void	ft_init_sprite(t_recup *recup)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = -1;
 	recup->s.nbspr = 0;
@@ -84,11 +85,14 @@ void	ft_init_sprite(t_recup *recup)
 				recup->s.nbspr += 1;
 		}
 	}
-	if (!(recup->sxy = (t_sprxy *)malloc(sizeof(t_sprxy) * recup->s.nbspr)))
+	recup->sxy = (t_sprxy *)malloc(sizeof(t_sprxy) * recup->s.nbspr);
+	if (!recup->sxy)
 		ft_error(recup, "Malloc sxy*");
-	if (!(recup->s.order = (int *)malloc(sizeof(int) * recup->s.nbspr)))
+	recup->s.order = (int *)malloc(sizeof(int) * recup->s.nbspr);
+	if (!recup->s.order)
 		ft_error(recup, "Malloc s.order*");
-	if (!(recup->s.dist = (double *)malloc(sizeof(double) * recup->s.nbspr)))
+	recup->s.dist = (double *)malloc(sizeof(double) * recup->s.nbspr);
+	if (!recup->s.dist)
 		ft_error(recup, "Malloc s.dist*");
 	ft_init_sprite2(recup, 0, 0, 0);
 	ft_mlx(recup);

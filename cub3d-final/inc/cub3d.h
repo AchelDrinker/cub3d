@@ -6,7 +6,7 @@
 /*   By: humartin <humartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 15:13:04 by humartin          #+#    #+#             */
-/*   Updated: 2022/12/07 16:39:29 by humartin         ###   ########.fr       */
+/*   Updated: 2022/12/08 15:33:52 by humartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@
 # define ESCAPE			53
 # define BUFFER_SIZE	4096
 
-typedef struct	s_sprxy
+typedef struct s_sprxy
 {
 	double			x;
 	double			y;
 }					t_sprxy;
 
-typedef struct	s_sprite
+typedef struct s_sprite
 {
 	int				nbspr;
 	int				*order;
@@ -58,7 +58,7 @@ typedef struct	s_sprite
 	double			*zbuffer;
 }					t_sprite;
 
-typedef struct	s_texture
+typedef struct s_texture
 {
 	int				texdir;
 	double			wallx;
@@ -68,7 +68,7 @@ typedef struct	s_texture
 	double			texpos;
 }					t_texture;
 
-typedef struct	s_ray
+typedef struct s_ray
 {
 	double			posx;
 	double			posy;
@@ -100,7 +100,7 @@ typedef struct	s_ray
 	int				texture;
 }					t_ray;
 
-typedef struct	s_data
+typedef struct s_data
 {
 	void			*mlx_ptr;
 	void			*mlx_win;
@@ -123,7 +123,7 @@ typedef struct	s_data
 	int				*addr2;
 }					t_data;
 
-typedef struct	s_recup
+typedef struct s_recup
 {
 	int				rx;
 	int				ry;

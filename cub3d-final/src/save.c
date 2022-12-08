@@ -6,7 +6,7 @@
 /*   By: humartin <humartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 15:10:52 by humartin          #+#    #+#             */
-/*   Updated: 2022/12/07 16:36:04 by humartin         ###   ########.fr       */
+/*   Updated: 2022/12/08 15:30:50 by humartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ void	ft_save(t_recup *recup)
 	int	y;
 
 	y = recup->ry;
-	if ((fd = open("./image.bmp", O_CREAT | O_RDWR)) == -1)
+	fd = open("./image.bmp", O_CREAT | O_RDWR);
+	if (fd == -1)
 		ft_error(recup, "Impossible de creer .bmp\n");
 	ft_header(recup, fd);
 	while (y >= 0)

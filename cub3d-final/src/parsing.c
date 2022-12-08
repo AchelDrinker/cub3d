@@ -6,14 +6,14 @@
 /*   By: humartin <humartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 15:10:26 by humartin          #+#    #+#             */
-/*   Updated: 2022/12/07 15:10:26 by humartin         ###   ########.fr       */
+/*   Updated: 2022/12/08 12:21:51 by humartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
 #include <mlx.h>
 
-int		ft_parsing_map(char *fichier, t_recup *recup)
+int	ft_parsing_map(char *fichier, t_recup *recup)
 {
 	int			fd;
 	int			ret;
@@ -22,15 +22,17 @@ int		ft_parsing_map(char *fichier, t_recup *recup)
 	ret = 1;
 	str = NULL;
 	fd = open(fichier, O_RDONLY);
-	if (!(recup->map = malloc(sizeof(char*) * recup->nblines)))
+	recup->map = malloc(sizeof(char *) * recup->nblines);
+	if (!recup->map)
 		return (0);
 	while (ret != 0)
 	{
 		ret = get_next_line(fd, &str, recup);
-		if (recup->insidemap == 1 && ft_lignevide(str) == 0 &&
+		if (recup->insidemap == 1 && ft_lignevide(str) == 0 && \
 				recup->count < recup->nblines)
 			recup->lignevide = 1;
-		if ((recup->insidemap = ft_is_map(str, recup)) == 1)
+		recup->insidemap = ft_is_map(str, recup);
+		if (recup->insidemap == 1)
 		{
 			recup->count++;
 			ft_copy_map(str, recup);
@@ -50,9 +52,11 @@ void	ft_parsing(char *fichier, t_recup *recup)
 
 	ret = 1;
 	str = NULL;
-	if ((fd = open(fichier, O_DIRECTORY)) != -1)
+	fd = open(fichier, O_DIRECTORY);
+	if (fd != -1)
 		ft_error(recup, "Invalide : is a directory\n");
-	if ((fd = open(fichier, O_RDONLY)) == -1)
+	fd = open(fichier, O_RDONLY);
+	if (fd == -1)
 		ft_error(recup, "Fichier .cub invalide\n");
 	recup->erreur = 0;
 	while (ret != 0)
@@ -71,7 +75,7 @@ void	ft_parsing(char *fichier, t_recup *recup)
 	ft_parsing_map(fichier, recup);
 }
 
-int		ft_cub(char *str, t_recup *recup)
+int	ft_cub(char *str, t_recup *recup)
 {
 	int			i;
 
@@ -94,9 +98,9 @@ int		ft_cub(char *str, t_recup *recup)
 	return (0);
 }
 
-int		main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_recup recup;
+	t_recup	recup;
 
 	recup.save = 0;
 	ft_initialisation(&recup);

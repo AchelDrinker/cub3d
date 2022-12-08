@@ -6,7 +6,7 @@
 /*   By: humartin <humartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 15:09:30 by humartin          #+#    #+#             */
-/*   Updated: 2022/12/07 16:40:24 by humartin         ###   ########.fr       */
+/*   Updated: 2022/12/08 11:19:46 by humartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	ft_error2(t_recup *recup)
 
 void	ft_error(t_recup *recup, char *str)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	recup->indicateur3 = 1;
@@ -70,7 +70,7 @@ void	ft_error(t_recup *recup, char *str)
 	ft_error2(recup);
 }
 
-int		ft_exit(t_recup *recup)
+int	ft_exit(t_recup *recup)
 {
 	if (recup->indicateur3 == 0)
 		ft_error(recup, "\n");
